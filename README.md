@@ -1,4 +1,5 @@
-# rblx_scripts
-Open Source Code Scripts\n
-Here's loader\n
-loadstring(game:HttpGet("https://raw.githubusercontent.com/deeeity/mercury-lib/master/src.lua"))()
+<h3 align="center">A passionate frontend developer from thailand</h3>
+
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+</p>
