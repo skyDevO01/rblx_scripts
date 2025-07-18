@@ -50,22 +50,30 @@ Section:NewButton("Rejoin", "", function()
     game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
 end)
 
-run.Heartbeat:Connect(function()
-    if not _G.cfg.enabledAutoCollect then return end
-    for penIndex, pen in pairs(workspace.Farms["Plot" .. ownedplot].Pens:GetChildren()) do
-        if pen:FindFirstChild("Drops") then
-            for _, v in pairs(pen.Drops:GetChildren()) do
-                local args = {
-                    [1] = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Drop"):WaitForChild("CollectDrop"),
-                    [2] = v.Name
-                }
-                game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Drop"):InvokeServer(unpack(args))
+task.spawn(function()
+    while true do
+        wait(0.26)
+        if _G.cfg.enabledAutoCollect then
+            for penIndex, pen in pairs(workspace.Farms["Plot" .. ownedplot].Pens:GetChildren()) do
+                if pen:FindFirstChild("Drops") then
+                    for _, v in pairs(pen.Drops:GetChildren()) do
+                        local args = {
+                            [1] = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Drop"):WaitForChild("CollectDrop"),
+                            [2] = v.Name
+                        }
+                        game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Drop"):InvokeServer(unpack(args))
+                    end
+                end
             end
         end
     end
 end)
 
-run.Heartbeat:Connect(function()
-    if not _G.cfg.enabledAutoSell then return end
-    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Sell"):InvokeServer()
+task.spawn(function()
+    while true do
+        wait(0.5)
+        if _G.cfg.enabledAutoSell then
+            game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Sell"):InvokeServer()
+        end
+    end
 end)
