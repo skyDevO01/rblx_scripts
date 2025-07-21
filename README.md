@@ -1,4 +1,4 @@
-Open Source Code Scripts
+Free Scripts
 -------------------------------
 Here is loader script
 ```lua
