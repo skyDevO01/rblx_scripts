@@ -1,0 +1,29 @@
+-- Function to check if we are inside a loadstring execution
+function isExecutingInLoadstring()
+    -- Get the information about the calling function in the stack
+    local info = debug.getinfo(2, "S")
+    
+    -- Check if the source of the function call is loadstring
+    if info and info.source then
+        -- If the source is from loadstring, we are in loadstring
+        return info.source:match("=([%w_]+)") == "loadstring"
+    end
+    return false
+end
+
+-- Test script to see if we are inside loadstring
+print("Checking if inside loadstring...")
+
+-- Case 1: Inside regular script execution
+if isExecutingInLoadstring() then
+    print("We are inside a loadstring!")
+else
+    print("We are NOT inside a loadstring!")
+end
+
+-- Case 2: Using loadstring to execute code dynamically
+local code = "if isExecutingInLoadstring() then print('We are inside a loadstring!') else print('We are NOT inside a loadstring!') end"
+local loadedFunc = loadstring(code)
+
+-- Execute the loaded code and check again
+loadedFunc()
