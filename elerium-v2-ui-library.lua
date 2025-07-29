@@ -1,3 +1,4 @@
+--Credit to Chinawasspyingonusa
 local ui_options = {
 	main_color = Color3.fromRGB(41, 74, 122),
 	min_size = Vector2.new(400, 300),
