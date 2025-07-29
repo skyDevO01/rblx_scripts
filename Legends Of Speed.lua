@@ -12,6 +12,7 @@ local run = game:GetService("RunService")
 
 local autoorbs = false
 local autohoops = false
+local autochests = false
 local autorebirth = false
 
 local features = window:AddTab("Farm")
@@ -20,6 +21,9 @@ features:AddLabel("Legends Of Speed ⚡ / 3101667897")
 
 local switch = features:AddSwitch("Auto Collect Orbs", function(bool)
 	autoorbs = bool
+end)
+local switch = features:AddSwitch("Auto Collect Chests", function(bool)
+	autochests = bool
 end)
 local switch = features:AddSwitch("Auto Hoops", function(bool)
 	autohoops = bool
@@ -41,6 +45,16 @@ end)
 run.Heartbeat:Connect(function()
     if not autohoops then return end
     for _, v in pairs(workspace.Hoops:GetDescendants()) do
+        if v:IsA("BasePart") and v:FindFirstChildOfClass("TouchTransmitter") then
+            firetouchinterest(head, v, 1)
+            firetouchinterest(head, v, 0)
+        end
+    end
+end)
+
+run.Heartbeat:Connect(function()
+    if not autochests then return end
+    for _, v in pairs(workspace.rewardChests:GetDescendants()) do
         if v:IsA("BasePart") and v:FindFirstChildOfClass("TouchTransmitter") then
             firetouchinterest(head, v, 1)
             firetouchinterest(head, v, 0)
