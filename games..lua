@@ -12,4 +12,8 @@ return {
         name = "[BETA] Anime Evolution",
         url = "https://raw.githubusercontent.com/skyDevO01/rblx_scripts/refs/heads/main/%5BBETA%5D%20Anime%20Evolution.lua"
     },
+    [3101667897] = {
+        name = "Legends Of Speed ⚡",
+        url = "https://raw.githubusercontent.com/skyDevO01/rblx_scripts/refs/heads/main/Legends%20Of%20Speed.lua"
+    },
 }
