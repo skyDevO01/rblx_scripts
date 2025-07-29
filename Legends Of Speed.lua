@@ -12,6 +12,7 @@ local run = game:GetService("RunService")
 
 local autoorbs = false
 local autohoops = false
+local autorebirth = false
 
 local features = window:AddTab("Farm")
 features:Show()
@@ -23,6 +24,9 @@ end)
 local switch = features:AddSwitch("Auto Hoops", function(bool)
 	autohoops = bool
 end)
+local switch = features:AddSwitch("Auto Rebirth", function(bool)
+	autorebirth = bool
+end)
 
 run.Heartbeat:Connect(function()
     if not autoorbs then return end
@@ -30,7 +34,6 @@ run.Heartbeat:Connect(function()
         if v:IsA("BasePart") and v:FindFirstChildOfClass("TouchTransmitter") then
             firetouchinterest(head, v, 1)
             firetouchinterest(head, v, 0)
-            task.wait(0.25)
         end
     end
 end)
@@ -41,7 +44,11 @@ run.Heartbeat:Connect(function()
         if v:IsA("BasePart") and v:FindFirstChildOfClass("TouchTransmitter") then
             firetouchinterest(head, v, 1)
             firetouchinterest(head, v, 0)
-            task.wait(0.25)
         end
     end
+end)
+
+run.Heartbeat:Connect(function()
+    if not autorebirth then return end
+    game:GetService("ReplicatedStorage"):WaitForChild("rEvents"):WaitForChild("rebirthEvent"):FireServer("rebirthRequest")
 end)
