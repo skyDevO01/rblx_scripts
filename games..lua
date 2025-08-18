@@ -16,4 +16,12 @@ return {
         name = "Legends Of Speed ⚡",
         url = "https://raw.githubusercontent.com/skyDevO01/rblx_scripts/refs/heads/main/Legends%20Of%20Speed.lua"
     },
+     [16732694052] = {
+        name = "Fisch 🐟",
+        url = "https://raw.githubusercontent.com/skyDevO01/rblx_scripts/refs/heads/main/Fisch.lua"
+    },
+     [131716211654599] = {
+        name = "Fisch 🐟",
+        url = "https://raw.githubusercontent.com/skyDevO01/rblx_scripts/refs/heads/main/Fisch.lua"
+    },
 }
