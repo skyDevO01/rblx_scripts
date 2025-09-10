@@ -24,4 +24,8 @@ return {
         name = "Fisch 🐟",
         url = "https://raw.githubusercontent.com/skyDevO01/rblx_scripts/refs/heads/main/Fisch.lua"
     },
+    [2248408710] = {
+        name = "💥 Destruction Simulator",
+        url = "https://raw.githubusercontent.com/skyDevO01/rblx_scripts/refs/heads/main/Destruction%20Simulator.lua"
+    },
 }
